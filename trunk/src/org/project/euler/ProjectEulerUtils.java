@@ -107,4 +107,19 @@ public class ProjectEulerUtils {
 		return true;
 	}
 	
+	
+	public static int findNthPrimeNumber(int n){
+		int start = 3;
+		int count = 1;
+		int prime = 2;
+		while(count != n){
+			if(isPrimeNumber(start) == true){
+				count++;
+				prime = start;
+			}
+			start++;
+		}
+		return prime;
+	}
+	
 }
