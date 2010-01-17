@@ -1,7 +1,9 @@
 package org.project.euler;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * ProjectEulerUtils is a utility class for solving the Project euler problems.
@@ -54,6 +56,27 @@ public class ProjectEulerUtils {
 		return factors;
 	}
 	
+	/**
+	 * This method returns all the prime factors for a given number
+	 * 
+	 * @param number for which we have to find all the prime factors
+	 * @return List of all the prime factors
+	 */
+	public static  List<Integer> findAllPrimeFactorsForANumber(int number){
+		List<Integer> factors = new ArrayList<Integer>();
+		if(isPrimeNumber(number) == true){
+			return factors;
+		}
+		for(int i = 2;i <= number;i++){
+			if(number % i == 0){
+				if(isPrimeNumber(i) == true){
+					factors.add(i);
+				}
+				number = number/i;
+			}
+		}
+		return factors;
+	}
 	/**
 	 * This method returns the count of PrimeFactors for a number
 	 * 
@@ -222,5 +245,71 @@ public class ProjectEulerUtils {
 			sum += prime;
 		}
 		return sum;
+	}
+	
+	/**
+	 * Any nonzero natural number n can be factored into primes, written as a product of primes or powers of primes.
+	 * This method will return you a map of PrimeNumber and its maximaum power.
+	 * For example, consider a number 28, it can be factored to 2^2*7^1
+	 * This method will return a map with entries, 2 and 2 and 7 and 1.
+	 * 
+	 * @param number
+	 * @param primeNumbers
+	 * @return
+	 */
+	public static Map<Integer, Integer> findPowerOfPrimeNumber(int number,List<Integer> primeNumbers) {
+		Map<Integer, Integer> primeNumberWithPower = new HashMap<Integer, Integer>();
+		for(int primeNumber : primeNumbers){
+			int power = 1;
+			boolean maxPowerReached = false;
+			while(maxPowerReached == false){
+				if(number % Math.pow(primeNumber, power) == 0){
+					power++;
+				}else{
+					maxPowerReached = true;
+				}
+			}
+			if(maxPowerReached == true){
+				power--;
+				primeNumberWithPower.put(primeNumber, power);
+			}
+		}
+		return primeNumberWithPower;
+	}
+
+
+	/**
+	 * Calculates the number of divisors.
+	 * Number of divisors are calculated based on the <a href="http://en.wikipedia.org/wiki/Divisor_function">Divisor Function</a>.
+	 * For example, consider a number 28, it can be factored to 2^2*7^1.
+	 * So, the number of divisors are calculated as (2+1)*(1+1) = 6.
+	 * As you can check also, 28 has 6 factors 1,2,4,7,14,28
+	 * 
+	 * @param primeNumberWithPower
+	 * @return Number of divisors
+	 */
+	public static int calculateNumberOfDivisors(Map<Integer, Integer> primeNumberWithPower) {
+		int numberOfDivisors = 1;
+		for(int power : primeNumberWithPower.values()){
+			numberOfDivisors *= (power +1); 
+		}
+		return numberOfDivisors;
+	}
+
+	/**
+	 * finds which all prime numbers are applicable to a given number out of the given list of prime numbers.
+	 * 
+	 * @param primeNumbers
+	 * @param number
+	 * @return List of prime numbers applicable to the number
+	 */
+	public static List<Integer> findPrimeNumbersApplicableToNumber(List<Integer> primeNumbers, int number) {
+		List<Integer> primeNumberForTriangleNumber = new ArrayList<Integer>();
+		for(int primeNumber : primeNumbers){
+			if(number % primeNumber == 0){
+				primeNumberForTriangleNumber.add(primeNumber);
+			}
+		}
+		return primeNumberForTriangleNumber;
 	}
 }
