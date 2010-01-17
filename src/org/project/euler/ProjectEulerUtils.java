@@ -150,4 +150,35 @@ public class ProjectEulerUtils {
 		}
 		return greatestProduct;
 	}
+	
+	/**
+	 * Finds the Pythagorean Triplets
+	 * @param sum
+	 * @return array of Pythagorean Triplets
+	 */
+	public static int[] findPythagoreanTriplets(int sum) {
+		int[] triplets = new int[3];
+		for(int c = sum;c>0;c--){
+			for(int b = c-1;b >0;b--){
+				for(int a = b-1;a>0;a--){
+					if( ( (a+b+c)== sum) && (a*a + b*b -c*c == 0))  {
+						triplets[0] = a;
+						triplets[1] = b;
+						triplets[2] = c;
+					}
+				}
+			}
+		}
+		return triplets;
+	}
+	
+	/**
+	 * Given an array of pythagorean triplets,this method finds the product of those number.
+	 * 
+	 * @param triplets, an array of pythagorean triplets
+	 * @return product of pythagorean triplets 
+	 */ 
+	public static int findProductOfPythagoreanTriplet(int[] triplets){
+		return triplets[0]*triplets[1]*triplets[2];
+	}
 }
