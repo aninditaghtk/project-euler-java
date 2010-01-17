@@ -20,7 +20,7 @@ public class PE7 {
 		StopWatch watch = new StopWatch().start();
 		int nthPrimeNumber = ProjectEulerUtils.findNthPrimeNumber(10001);
 		System.out.println(nthPrimeNumber);
-		watch.stop().getTimeElapsed();
+		watch.stop().getElapsedTime();
 	}
 	
 	

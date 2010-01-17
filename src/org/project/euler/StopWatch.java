@@ -15,7 +15,7 @@ public class StopWatch {
 		return this;
 	}
 	
-	public long getTimeElapsed(){
+	public long getElapsedTime(){
 		long elapsedTime = endTime - startTime;
 		System.out.println("Total time taken to execute is: "+elapsedTime+" ms");
 		return elapsedTime;

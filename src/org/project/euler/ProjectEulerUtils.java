@@ -107,7 +107,12 @@ public class ProjectEulerUtils {
 		return true;
 	}
 	
-	
+	/**
+	 * Finds the Nth prime number
+	 * 
+	 * @param n
+	 * @return Nth prime number 
+	 */
 	public static int findNthPrimeNumber(int n){
 		int start = 3;
 		int count = 1;
@@ -122,4 +127,27 @@ public class ProjectEulerUtils {
 		return prime;
 	}
 	
+	/**
+	 * Given a string, this routine finds the greatest product of n consecutive number
+	 * 
+	 * @param number 
+	 * @param n no of consecutive number
+	 * @return Greatest product of n consecutive number.
+	 */
+	public static int findGreatestProductOfNConsecutiveNumber(String number,int n) {
+		int greatestProduct = 0;
+		int length = number.length();
+		for(int i = 0;i<length-(n-1);i++){
+			String str = number.substring(i, i+n);
+			int result = 1;
+			for(int j =0;j<str.length();j++){
+				int num = Integer.parseInt(String.valueOf(str.charAt(j)));
+				result = result*num;
+			}
+			if(result > greatestProduct){
+				greatestProduct = result;
+			}
+		}
+		return greatestProduct;
+	}
 }

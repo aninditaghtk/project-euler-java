@@ -15,7 +15,7 @@ public class PE3 {
 		StopWatch stopWatch = new StopWatch().start();
 		long largestPrimeFactor = ProjectEulerUtils.findLargestPrimeFactorForANumber(600851475143l);
 		System.out.println(largestPrimeFactor);
-		stopWatch.stop().getTimeElapsed();
+		stopWatch.stop().getElapsedTime();
 	}
 
 	
