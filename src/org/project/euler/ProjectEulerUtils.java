@@ -181,4 +181,46 @@ public class ProjectEulerUtils {
 	public static int findProductOfPythagoreanTriplet(int[] triplets){
 		return triplets[0]*triplets[1]*triplets[2];
 	}
+	
+	/**
+	 * This method finds the prime numbers below a given number.
+	 * This method uses Sieve of Eratosthenes algortithm. See <a href="http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">link</a> 
+	 * 
+	 * @param number
+	 * @return List of prime numbers.
+	 */
+	public static List<Integer> getListOfPrimeNumbersBelowAGivenNumber(int number){
+		boolean[] primes = new boolean[number +1];
+		for(int i = 1;i<primes.length ;i++){
+			primes[i] = true;
+		}
+		for(int divisor = 2;divisor * divisor< number;divisor++){
+			if(primes[divisor] == true){
+				for(int i = divisor*2;i<=number; i = i + divisor){
+					primes[i] = false;
+				}
+			}
+		}
+		List<Integer> primeNumbers = new ArrayList<Integer>();
+		for(int i = 2;i<primes.length;i++){
+			if(primes[i] == true){
+				primeNumbers.add(i);
+			}
+		}
+		return primeNumbers;
+	}
+	
+	/**
+	 * Calculates sum of elements of List.
+	 * 
+	 * @param primeNumbers, a list of prime numbers
+	 * @return sum of elements of List
+	 */
+	public static long calculateSumOfElements(List<Integer> primeNumbers) {
+		long sum = 0;
+		for(int prime : primeNumbers){
+			sum += prime;
+		}
+		return sum;
+	}
 }
