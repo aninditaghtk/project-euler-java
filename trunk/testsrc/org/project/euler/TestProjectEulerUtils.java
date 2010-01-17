@@ -35,7 +35,7 @@ public class TestProjectEulerUtils {
 		long number = 200560490131l;
 		StopWatch stopWatch = new StopWatch().start();
 		boolean isPrime = ProjectEulerUtils.isPrimeNumber(number);
-		stopWatch.stop().getTimeElapsed();
+		stopWatch.stop().getElapsedTime();
 		assertTrue(isPrime);
 		
 		number = 1000000000l;
