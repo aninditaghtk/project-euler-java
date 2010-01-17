@@ -1,1 +1,2 @@
-Link whicn contains list of  prime number = http://en.wikipedia.org/wiki/List_of_prime_numbers
+1) Link whicn contains list of  prime number = http://en.wikipedia.org/wiki/List_of_prime_numbers
+2) any nonzero natural number n can be factored into primes, written as a product of primes or powers of primes http://en.wikipedia.org/wiki/Prime_number
