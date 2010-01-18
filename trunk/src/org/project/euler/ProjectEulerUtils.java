@@ -334,5 +334,14 @@ public class ProjectEulerUtils {
 		}
 		return largestChainElement;
 	}
+	
+	public static int getSumOfDigitsOfNumber(String number) {
+		char[] charArray = number.toCharArray();
+		int sum = 0;
+		for(char ch : charArray){
+			sum += Integer.parseInt(String.valueOf(ch));
+		}
+		return sum;
+	}
 
 }
