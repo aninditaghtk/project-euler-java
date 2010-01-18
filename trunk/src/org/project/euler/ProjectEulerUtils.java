@@ -312,4 +312,27 @@ public class ProjectEulerUtils {
 		}
 		return primeNumberForTriangleNumber;
 	}
+	
+	public static long getLargestCollatzNumber(long startNumber,long endNumber) {
+		long largestChainElement = 0;
+		long largestChainSize = 0;
+		for(long i = startNumber; i<=endNumber;i++){
+			long number = i;
+			long count = 1;
+			while(number != 1){
+				count++;
+				if(number%2 == 0){
+					number = number/2;
+				}else{
+					number = 3*number +1;
+				}
+			}
+			if(largestChainSize < count){
+				largestChainElement = i;
+				largestChainSize = count;
+			}
+		}
+		return largestChainElement;
+	}
+
 }
