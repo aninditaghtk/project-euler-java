@@ -25,12 +25,13 @@ public class ProjectEulerUtils {
 		if(isPrimeNumber(number) == true){
 			return factors;
 		}
-		for(long i = 2;i <= number;i++){
+		for(long i = 2;i <= number/2;i++){
 			if(number % i == 0){
 				number = number/i;
 				factors.add(i);
 			}
 		}
+		factors.add(number);
 		return factors;
 	}
 	
