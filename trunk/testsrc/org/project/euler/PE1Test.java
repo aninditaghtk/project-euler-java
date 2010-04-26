@@ -39,5 +39,16 @@ public class PE1Test {
 		int sum = problem.calculateSum(limit,firstNumber,secondNumber);
 		assertEquals(233168, sum);
 	}
+	
+	@Test
+	public void test_sum_of_multiples_of_2_3_and_5_below_10(){
+		int firstNumber = 2;
+		int secondNumber = 3;
+		int thirdNumber = 5;
+		int limit = 10;
+		
+		int sum = problem.calculateSum(limit,firstNumber,secondNumber, thirdNumber);
+		assertEquals(37, sum);
+	}
 
 }
